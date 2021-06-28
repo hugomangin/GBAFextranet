@@ -21,10 +21,8 @@
         {
         ?>
             <form action="vote_traitement.php?id_acteur=<?php echo $_GET['id_acteur']; ?>" method="post">
-            <select class="" name="vote"><br>
-                <option value="1">J'aime</option>
-                <option value="-1">Je n'aime pas</option>
-            <input type="submit" name="" value="OK">
+            <button class="jaime" name="vote" type="submit" value="1"><img src="thumbsup.png" alt=""></button>
+            <button class="jenaimepas" name="vote" type="submit" value="-1"><img src="thumbsdown.png" alt=""></button>
             </form>
             <?php
             }
