@@ -18,6 +18,8 @@
 
         <section>
 
+            <div class="connexion">
+
         <form action="connexion_traitement.php" method="post">
 
         <label for="pseudo_utilisateur">Nom d'utilisateur</label><input type="text" name="pseudo_utilisateur" value=""><br>
@@ -28,6 +30,8 @@
 
         <a href="inscription.php">Pas de compte?</a>
         <a href="reinitialisation_mot_de_passe.php">Mot de passe oublié?</a>
+
+            </div>
 
         </section>
 

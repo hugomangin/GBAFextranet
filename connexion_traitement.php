@@ -21,7 +21,7 @@ $isPasswordCorrect = password_verify($_POST['mot_de_passe'], $resultat['mot_de_p
 
 if (!$resultat)
 {
-    echo 'Mauvais identifiant ou mot de passe !';
+    header('Location: mauvais_identifiant.php');
 }
 else
 {
@@ -29,10 +29,10 @@ else
         session_start();
         $_SESSION['id_utilisateur'] = $resultat['id_utilisateur'];
         $_SESSION['pseudo_utilisateur'] = $_POST['pseudo_utilisateur'];
-        header('Location: index.php');
+        header('Location: accueil.php');
 
     }
     else {
-        echo 'Mauvais identifiant ou mot de passe !';
+        header('Location: mauvais_identifiant.php');
     }
 }

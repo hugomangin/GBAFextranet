@@ -1,31 +1,170 @@
-header, section, footer
+@font-face
 {
-    border: 3px red outset;
+    font-family: 'coolvetica';
+    src: url('coolvetica rg.ttf');
+}
+
+p
+{
+    font-size: 18px;
+    font-family: 'coolvetica', Verdana, Arial, sans-serif;
+    color: #0c2d48;
+    padding-left: 50px;
+    padding-right: 50px;
+}
+
+h1
+{
+    font-size: 40px;
+    font-family: 'coolvetica', Verdana, Arial, sans-serif;
+    color: #0c2d48;
+    padding-left: 50px;
+    padding-right: 50px;
+}
+
+h2
+{
+    font-size: 25px;
+    font-family: 'coolvetica', Verdana, Arial, sans-serif;
+    color: #0c2d48;
+    padding-left: 50px;
+    padding-right: 50px;
+}
+
+nav
+{
+    font-size: 25px;
+    font-family: 'coolvetica', Verdana, Arial, sans-serif;
+    color: #0c2d48;
+    border: 3px #145da0 outset;
     width: 1200px;
     margin: auto;
 }
 
-header
+
+header, section, footer
+{
+    border: 3px #145da0 outset;
+    width: 1200px;
+    margin: auto;
+    font-size: 18px;
+    font-family: 'coolvetica', Verdana, Arial, sans-serif;
+    color: #0c2d48;
+}
+
+footer
+{
+    text-align: center;
+}
+
+header, nav
 {
     display: flex;
     justify-content: space-around;
 }
+
+nav
+{
+    height: 50px;
+}
+
 
 .banniere
 {
     width: 1200px;
     display: block;
     margin: auto;
+    opacity: 0.9;
+    border:  3px #145da0 outset;
 }
 
-#box
+#conteneur_acteur
 {
     width: 1100px;
-    height: 150px;
-    border:  3px red outset;
+    height: 80px;
+    border:  3px #145da0 outset;
     margin: auto;
+    overflow: hidden;
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-around;
 }
 
+.logo_acteur_flottant
+{
+    float: left;
+}
+
+.titre_acteur
+{
+    font-size: 25px;
+    font-family: 'coolvetica', Verdana, Arial, sans-serif;
+    color: #0c2d48;
+    text-align: center;
+}
+
+a
+{
+   text-decoration: none;
+   color: #145da0;
+}
+
+a:hover
+{
+   text-decoration: underline;
+   color: #2e8bc0;
+}
+
+body
+{
+    background-color: #b1d4e0;
+}
+
+.description_acteur
+{
+    color: #2e8bc0;
+    padding-left: 25px;
+    overflow: hidden;
+}
+
+.afficher_suite_flottant
+
+.parametres_compte_formulaire, .connexion, .formulaire_inscription, .formulaire_reinitialisation
+{
+    padding: 20px;
+    text-align: center;
+}
+
+#vote
+{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding-bottom: 50px;
+}
+
+#zone_commentaire
+{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  padding-bottom: 50px;
+  padding-top: 50px;
+}
+
+.commentaires
+{
+    padding-top: 20px;
+    padding-left: 50px;
+    padding-bottom: 10px;
+}
+
+.envoi_commentaire
+{
+  padding-left: 50px;
+}
 
 /* Responsive design */
 

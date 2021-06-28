@@ -29,6 +29,6 @@ $req->execute(array(
   'id_utilisateur' => $_SESSION['id_utilisateur']
 	));
 
-header('Location: index.php');
+header('Location: parametres_compte_formulaire.php');
 
 ?>

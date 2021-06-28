@@ -15,6 +15,7 @@
 
         <?php
         include("header.php");
+        include("menu.php");
         ?>
 
         <section>
@@ -39,8 +40,9 @@
                 ?>
 
                 <p>
-                <strong>Acteur:</strong> <?php echo $donnees_acteur['acteur']; ?><br />
-                <strong>Description: </strong><?php echo $donnees_acteur['description']; ?><br />
+                <?php echo'<img src="logos/'.$donnees_acteur['logo'].'" class="logo_acteur_flottant" alt="logo"/>'; ?>
+                <p class="titre_acteur"><?php echo $donnees_acteur['acteur']; ?></p><br />
+                <p class="description_acteur"><strong>Description: </strong><?php echo $donnees_acteur['description']; ?></p><br />
                 </p>
 
                 <?php
@@ -51,17 +53,28 @@
 
               </div>
 
+              <?php
+              include("vote.php");
+              ?>
+
         </section>
 
+
+
         <section>
+          <div id="zone_commentaire">
+
+
+            <div class="envoi_commentaire">
+
 
             <form action="traitement_commentaire.php?id_acteur=<?php echo $_GET['id_acteur']; ?>" method="post"> <!-- Formulaire pour saisir un commentaire -->
 
                 <label for="post">Message: </label><input type="text" name="post" />
-                <input type="submit" value="Envoyer" />
-
+                <input type="submit" value="Envoyer" /><br><br>
+                <strong>Commentaires:</strong>
             </form>
-
+            </div>
             <?php
             try
             {
@@ -76,7 +89,8 @@
             FROM post
             INNER JOIN account -- Jointure entre tables post et account avec clé id_utilisateur
             ON post.id_utilisateur = account.id_utilisateur
-            WHERE id_acteur = ?'); // Filtre sur les commentaires associés à l'acteur consulté
+            WHERE id_acteur = ?
+            ORDER BY date_add DESC'); // Filtre sur les commentaires associés à l'acteur consulté
 
             $requete_commentaire->execute(array($_GET['id_acteur'])); // Suite filtre sur les commentaires associés à l'acteur consulté
 
@@ -84,8 +98,8 @@
             {
             ?>
 
-            <div id="zone_commentaire">
-            <strong>Commentaires:</strong><br />
+            <div class="commentaires">
+
             <?php echo $donnees_commentaire['date_add']." ".$donnees_commentaire['prenom']." ".$donnees_commentaire['nom']." ".$donnees_commentaire['post'];?>
             </div>
 
@@ -94,12 +108,10 @@
             }
             $requete_commentaire->closeCursor();
             ?>
-
+            </div>
         </section>
 
         <?php
-
-        include("vote.php");
 
         include("footer.php"); ?>
 
