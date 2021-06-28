@@ -25,3 +25,43 @@ header
     border:  3px red outset;
     margin: auto;
 }
+
+
+/* Responsive design */
+
+@media screen and (max-width: 1280px)
+{
+    .banniere
+    {
+        display: none;
+    }
+
+    header, section, footer, nav, #conteneur_acteur
+    {
+
+        width: auto;
+    }
+
+    nav
+    {
+        flex-direction: column;
+        text-align: left;
+        height: auto;
+    }
+
+    h1
+    {
+        font-size: 25px;
+    }
+
+    .logo_acteur_flottant
+    {
+        display: none;
+    }
+
+    #conteneur_acteur
+    {
+        flex-direction: column;
+        height: 240px;
+    }
+}
