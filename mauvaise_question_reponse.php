@@ -4,14 +4,14 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta charset="utf-8" />
         <link rel="stylesheet" href="style.css" />
-        <title>Connexion - Identification incorrecte</title>
+        <title>Réinitialisation - Erreur</title>
     </head>
     <body>
         <?php include("header.php"); ?>
         <section>
-            <div class="mauvais_identifiant">
-                <p>Identifiant incorrect, veuillez réessayer.</p>
-                <a href="connexion.php">Retour à l'écran de connexion</a>
+            <div class="mauvaise_question_reponse">
+                <p>Question ou reponse incorrecte, veuillez réessayer.</p>
+                <a href="reinitialisation_mot_de_passe.php">Retour à l'écran de réinitialisation</a>
             </div>
         </section>
         <?php include("footer.php"); ?>
