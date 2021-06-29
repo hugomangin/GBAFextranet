@@ -1,56 +1,70 @@
+<?php
+session_start();
+if (isset($_SESSION['id_utilisateur']))
+{
+?>
+
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta charset="utf-8" />
-        <link rel="stylesheet" href="style.css" />
-        <title>Acteur</title>
-    </head>
-    <body>
-        <?php
-        include("header.php");
-        include("menu.php");
-        ?>
-        <section>
+		<head>
+				<meta name="viewport" content="width=device-width, initial-scale=1.0">
+				<meta charset="utf-8" />
+				<link rel="stylesheet" href="style.css" />
+				<title>Acteur</title>
+		</head>
+		<body>
+		<?php
+		include("header.php");
+		include("menu.php");
+		?>
+				<section>
             <div id="acteur">
             <?php
             try
             {
                 $bdd = new PDO('mysql:host=localhost;dbname=gbaf;charset=utf8', 'root', 'root');
-                }
+            }
             catch (Exception $e)
             {
                 die('Erreur : '.$e->getMessage());
-                }
+            }
 
             $requete_acteur = $bdd->prepare('SELECT acteur, description, logo FROM acteur WHERE id_acteur = ?');
             $requete_acteur->execute(array($_GET['id_acteur']));
 
             while ($donnees_acteur = $requete_acteur->fetch())
-            {
-            ?>
-            <p>
-            <?php echo'<img src="logos/'.$donnees_acteur['logo'].'" class="logo_acteur_flottant" alt="logo"/>'; ?>
-            <p class="titre_acteur"><?php echo $donnees_acteur['acteur']; ?></p><br />
-            <p class="description_acteur"><strong>Description: </strong><?php echo $donnees_acteur['description']; ?></p><br />
-            </p>
-            <?php
-            }
+						{
+						?>
+						<?php
+						echo'<img src="logos/'.$donnees_acteur['logo'].'" class="logo_acteur" alt="logo"/>';
+						?>
+						<h3><?php echo $donnees_acteur['acteur']; ?></h3>
+						<p class="description_acteur">
+						<strong>Description: </strong>
+						<?php echo $donnees_acteur['description']; ?>
+						</p>
+						<br />
+						<?php
+						}
+
             $requete_acteur->closeCursor();
             ?>
+
             </div>
-            <?php include("vote.php");?>
+            <?php
+						include("vote.php");
+						?>
         </section>
         <section>
         <?php
         try
         {
           	$bdd = new PDO('mysql:host=localhost;dbname=gbaf;charset=utf8', 'root', 'root');
-            }
+        }
         catch(Exception $e)
         {
             die('Erreur : '.$e->getMessage());
-            }
+        }
 
         $req = $bdd->prepare('SELECT COUNT(*) AS nb_commentaire FROM post WHERE id_acteur=:id_acteur AND id_utilisateur=:id_utilisateur');
         $req->execute(array(
@@ -68,11 +82,11 @@
                 <label for="post">Message: </label><input type="text" name="post" />
                 <input type="submit" value="Envoyer" /><br><br>
             <?php
-            }
+        }
         else
         {
             Echo "Vous avez déjà laissé un commentaire sur cet acteur.";
-            }
+        }
         ?>
         <br><br><strong>Commentaires:</strong>
             </form>
@@ -81,11 +95,11 @@
             try
             {
                 $bdd = new PDO('mysql:host=localhost;dbname=gbaf;charset=utf8', 'root', 'root');
-                }
+            }
             catch (Exception $e)
             {
                 die('Erreur : '.$e->getMessage());
-                }
+            }
 
             $requete_commentaire = $bdd->prepare('SELECT *
             FROM post
@@ -102,11 +116,20 @@
                   <?php echo htmlspecialchars($donnees_commentaire['date_add']." ".$donnees_commentaire['prenom']." ".$donnees_commentaire['nom']." ".$donnees_commentaire['post']);?>
                 </div>
                 <?php
-                }
+            }
             $requete_commentaire->closeCursor();
             ?>
             </div>
         </section>
-        <?php include("footer.php"); ?>
-    </body>
-</html>
+				<?php
+				include("footer.php");
+				?>
+		</body>
+</html>>
+<?php
+}
+else
+{
+		header('Location: index.php');
+}
+?>

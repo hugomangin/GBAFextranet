@@ -3,11 +3,11 @@ session_start();
 try
 {
     $bdd = new PDO('mysql:host=localhost;dbname=gbaf;charset=utf8', 'root', 'root');
-    }
+}
 catch (Exception $e)
 {
     die('Erreur : '.$e->getMessage());
-    }
+}
 
 $pass_hache = password_hash($_POST['nouveau_mot_de_passe'], PASSWORD_DEFAULT);
 
