@@ -89,8 +89,6 @@ if (isset($_SESSION['id_utilisateur']))
         }
         ?>
         <br><br><strong>Commentaires:</strong>
-            </form>
-            </div>
             <?php
             try
             {
@@ -114,7 +112,6 @@ if (isset($_SESSION['id_utilisateur']))
                 ?>
                 <div class="commentaires">
                   <?php echo htmlspecialchars($donnees_commentaire['date_add']." ".$donnees_commentaire['prenom']." ".$donnees_commentaire['nom']." ".$donnees_commentaire['post']);?>
-                </div>
                 <?php
             }
             $requete_commentaire->closeCursor();
@@ -125,7 +122,7 @@ if (isset($_SESSION['id_utilisateur']))
 				include("footer.php");
 				?>
 		</body>
-</html>>
+</html>
 <?php
 }
 else

@@ -81,13 +81,9 @@ h3
 
 .conteneur_commentaire_vote
 {
-	display: flex;
-	flex-direction: row;
-	align-items: center;
-}
-
-.bonjour_utilisateur
-{
+		display: flex;
+		flex-direction: row;
+		align-items: center;
 }
 
 nav
